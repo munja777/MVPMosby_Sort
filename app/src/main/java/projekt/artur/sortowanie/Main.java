@@ -30,5 +30,4 @@ public class Main extends AppCompatActivity {
 
     public void bt(View view) { tV.setText (model.show(c) ); }
     public void bt2(View view) { presenter.sort(tV); }
-
 }
