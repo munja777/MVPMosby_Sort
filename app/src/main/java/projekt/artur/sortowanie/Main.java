@@ -12,7 +12,7 @@ public class Main extends AppCompatActivity {
 
     TextView tV;
     Button bt, bt2;
-
+    Context c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,10 @@ public class Main extends AppCompatActivity {
         tV = (TextView) findViewById(R.id.textView);
         bt = (Button) findViewById(R.id.bt);
         bt2 = (Button) findViewById(R.id.bt2);
+        c = getApplicationContext();
     }
 
     Model model = new Model();
-    Context c = getApplicationContext();
 
     public void bt(View view) { model.wyswietl(tV, c); }
     public void bt2(View view) { model.sortuj(tV); }
