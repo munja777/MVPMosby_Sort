@@ -26,8 +26,9 @@ public class Main extends AppCompatActivity {
     }
 
     Model model = new Model();
+    Presenter presenter = new Presenter();
 
-    public void bt(View view) { model.wyswietl(tV, c); }
-    public void bt2(View view) { model.sortuj(tV); }
+    public void bt(View view) { tV.setText (model.show(c) ); }
+    public void bt2(View view) { presenter.sort(tV); }
 
 }
