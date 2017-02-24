@@ -21,12 +21,8 @@ class MainPresenter extends MvpBasePresenter<MainView> {
 
     void showText() {
 
-        String a;
-        if (model.showNames() != null) {
-            a = model.showNames();
-            getView().show(a);
-        } else getView().show("abc");
-
+        String a = model.showNames();
+        getView().show(a);
     }
 
 
