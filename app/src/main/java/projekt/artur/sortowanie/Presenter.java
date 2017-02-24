@@ -8,8 +8,8 @@ import java.util.Arrays;
 
 interface MainView extends MvpView {
 
-    void show(String textArray);
-    void sort(String sortArray);
+    void show(String a);
+    void sort(String c);
 }
 
 class MainPresenter extends MvpBasePresenter<MainView> {
@@ -17,9 +17,15 @@ class MainPresenter extends MvpBasePresenter<MainView> {
     private Model model;
     MainPresenter(Model model) { this.model = model; }
 
-    String showText() { return model.show(); }
+    @SuppressWarnings("ConstantConditions")
+    void showText() {
 
-    String showSort() {
+        String a = model.show();
+        getView().show(a);
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    void showSort() {
 
         String a = model.show();
         String b, c;
@@ -29,7 +35,7 @@ class MainPresenter extends MvpBasePresenter<MainView> {
         Arrays.sort(tablica);
         b = Arrays.toString(tablica);
         c = b.substring(1, (b.length()) - 1);
-        return c;
+        getView().sort(c);
     }
 
 }

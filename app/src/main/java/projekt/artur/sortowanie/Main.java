@@ -2,6 +2,7 @@ package projekt.artur.sortowanie;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -9,7 +10,7 @@ import android.widget.TextView;
 import com.hannesdorfmann.mosby.mvp.MvpActivity;
 
 
-public abstract class Main extends MvpActivity<MainView, MainPresenter> implements MainView {
+public class Main extends MvpActivity<MainView, MainPresenter> implements MainView {
 
     TextView tV;
     Button bt, bt2;
@@ -24,16 +25,20 @@ public abstract class Main extends MvpActivity<MainView, MainPresenter> implemen
         bt2 = (Button) findViewById(R.id.bt2);
     }
 
+    Model model;
+
+    @NonNull
     @Override
-    public MainPresenter createPresenter(){
-        return new MainPresenter(model);
-    }
+    public MainPresenter createPresenter(){ return new MainPresenter(model); }
 
-    public void bt(View view) { tV.setText(textArray); }
-    public void bt2(View view) { tV.setText(sortArray); }
+    public void bt(View view) { presenter.showText(); }
+    public void bt2(View view) { presenter.showSort(); }
 
-    String textArray = presenter.showText();
-    String sortArray = presenter.showSort();
 
+    @Override
+    public void show(String textArray) { tV.setText(textArray); }
+
+    @Override
+    public void sort(String sortArray) { tV.setText(sortArray); }
 
 }
