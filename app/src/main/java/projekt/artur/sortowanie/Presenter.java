@@ -1,14 +1,27 @@
 package projekt.artur.sortowanie;
 
-import android.widget.TextView;
+import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
+import com.hannesdorfmann.mosby.mvp.MvpView;
+
 import java.util.Arrays;
 
 
-class Presenter {
+interface MainView extends MvpView {
 
-    void sort (TextView tV) {
+    void show(String textArray);
+    void sort(String sortArray);
+}
 
-        String a = tV.getText().toString();
+class MainPresenter extends MvpBasePresenter<MainView> {
+
+    private Model model;
+    MainPresenter(Model model) { this.model = model; }
+
+    String showText() { return model.show(); }
+
+    String showSort() {
+
+        String a = model.show();
         String b, c;
         String tablica[];
 
@@ -16,8 +29,7 @@ class Presenter {
         Arrays.sort(tablica);
         b = Arrays.toString(tablica);
         c = b.substring(1, (b.length()) - 1);
-
-        tV.setText(c);
+        return c;
     }
 
 }

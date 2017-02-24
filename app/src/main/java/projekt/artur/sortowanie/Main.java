@@ -1,18 +1,18 @@
 package projekt.artur.sortowanie;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.hannesdorfmann.mosby.mvp.MvpActivity;
 
-public class Main extends AppCompatActivity {
+
+public abstract class Main extends MvpActivity<MainView, MainPresenter> implements MainView {
 
     TextView tV;
     Button bt, bt2;
-    Context c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +22,18 @@ public class Main extends AppCompatActivity {
         tV = (TextView) findViewById(R.id.textView);
         bt = (Button) findViewById(R.id.bt);
         bt2 = (Button) findViewById(R.id.bt2);
-        c = getApplicationContext();
     }
 
-    Model model = new Model();
-    Presenter presenter = new Presenter();
+    @Override
+    public MainPresenter createPresenter(){
+        return new MainPresenter(model);
+    }
 
-    public void bt(View view) { tV.setText (model.show(c) ); }
-    public void bt2(View view) { presenter.sort(tV); }
+    public void bt(View view) { tV.setText(textArray); }
+    public void bt2(View view) { tV.setText(sortArray); }
+
+    String textArray = presenter.showText();
+    String sortArray = presenter.showSort();
+
+
 }
