@@ -12,22 +12,27 @@ interface MainView extends MvpView {
     void sort(String c);
 }
 
+@SuppressWarnings("ConstantConditions")
 class MainPresenter extends MvpBasePresenter<MainView> {
 
     private Model model;
     MainPresenter(Model model) { this.model = model; }
 
-    @SuppressWarnings("ConstantConditions")
+
     void showText() {
 
-        String a = model.show();
-        getView().show(a);
+        String a;
+        if (model.showNames() != null) {
+            a = model.showNames();
+            getView().show(a);
+        } else getView().show("abc");
+
     }
 
-    @SuppressWarnings("ConstantConditions")
+
     void showSort() {
 
-        String a = model.show();
+        String a = model.showNames();
         String b, c;
         String tablica[];
 

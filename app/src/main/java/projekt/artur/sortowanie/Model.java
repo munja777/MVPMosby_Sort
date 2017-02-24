@@ -14,7 +14,7 @@ class Model {
         this.view = view;
     }
 
-    String show() {
+    String showNames() {
 
         InputStream is = null;
         int size = 0;
