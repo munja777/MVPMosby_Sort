@@ -13,10 +13,10 @@ import com.hannesdorfmann.mosby.mvp.MvpActivity;
 
 public class Main extends MvpActivity<MainView, MainPresenter> implements MainView {
 
+
     TextView tV;
     Button bt, bt2;
     public static Context context;
-    public static Context getContext() { return context; }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +30,12 @@ public class Main extends MvpActivity<MainView, MainPresenter> implements MainVi
         context = getApplicationContext();
     }
 
-    Model model;
-
     @NonNull
     @Override
     public MainPresenter createPresenter(){ return new MainPresenter(); }
 
     public void bt(View view) { presenter.showText(); }
     public void bt2(View view) { presenter.showSort(); }
-
 
     @Override
     public void show(String textArray) { tV.setText(textArray); }
