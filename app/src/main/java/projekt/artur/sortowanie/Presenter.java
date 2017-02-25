@@ -15,20 +15,16 @@ interface MainView extends MvpView {
 @SuppressWarnings("ConstantConditions")
 class MainPresenter extends MvpBasePresenter<MainView> {
 
-    private Model model;
-    MainPresenter(Model model) { this.model = model; }
-
 
     void showText() {
 
-        String a = model.showNames();
+        String a = Model.text;
         getView().show(a);
     }
 
-
     void showSort() {
 
-        String a = model.showNames();
+        String a = Model.text;
         String b, c;
         String tablica[];
 

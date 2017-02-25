@@ -1,5 +1,8 @@
 package projekt.artur.sortowanie;
 
+import android.content.Context;
+import android.content.res.AssetManager;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -8,18 +11,13 @@ import java.io.InputStream;
 
 class Model {
 
-    private Main view;
 
-    Model(Main view) {
-        this.view = view;
-    }
-
-    String showNames() {
+    static String showNames() {
 
         InputStream is = null;
         int size = 0;
 
-        try { is = view.getAssets().open("nazwiska.txt"); }   catch (IOException e1) { e1.printStackTrace(); }
+        try { is = Main.getContext().getAssets().open("nazwiska.txt"); }   catch (IOException e1) { e1.printStackTrace(); }
 
         try {
             assert is != null;
@@ -33,5 +31,7 @@ class Model {
 
         return new String(buffer);
     }
+
+    public static String text = showNames();
 
 }
