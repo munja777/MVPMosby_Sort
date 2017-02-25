@@ -32,6 +32,4 @@ class Model {
         return new String(buffer);
     }
 
-    public static String text = showNames();
-
 }

@@ -18,13 +18,13 @@ class MainPresenter extends MvpBasePresenter<MainView> {
 
     void showText() {
 
-        String a = Model.text;
+        String a = Model.showNames();
         getView().show(a);
     }
 
     void showSort() {
 
-        String a = Model.text;
+        String a = Model.showNames();
         String b, c;
         String tablica[];
 
