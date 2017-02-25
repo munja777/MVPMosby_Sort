@@ -1,13 +1,8 @@
 package projekt.artur.sortowanie;
 
-import android.content.Context;
-import android.content.res.AssetManager;
-
 import java.io.IOException;
 import java.io.InputStream;
 
-
-@SuppressWarnings("ResultOfMethodCallIgnored")
 
 class Model {
 
